@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <math.h>
+
+#define INFINITO 99999
+
+int main(){
+	int matriz[10][10] = {
+  {0,INFINITO,INFINITO,INFINITO,1,INFINITO,INFINITO,10,INFINITO,INFINITO},
+  {INFINITO,0,2,INFINITO,INFINITO,INFINITO,INFINITO,INFINITO,INFINITO,INFINITO},
+  {INFINITO,INFINITO,0,INFINITO,INFINITO,INFINITO,INFINITO,INFINITO,INFINITO,INFINITO},
+  {4,INFINITO,INFINITO,0,3,INFINITO,INFINITO,1,INFINITO,INFINITO},
+  {INFINITO,INFINITO,INFINITO,INFINITO,0,INFINITO,INFINITO,INFINITO,INFINITO,INFINITO},
+  {INFINITO,1,3,INFINITO,INFINITO,0,7,INFINITO,1,INFINITO},
+  {INFINITO,INFINITO,INFINITO,INFINITO,INFINITO,0,INFINITO,INFINITO,INFINITO,INFINITO},
+  {INFINITO,INFINITO,INFINITO,INFINITO,5,INFINITO,INFINITO,0,9,INFINITO},
+  {INFINITO,INFINITO,INFINITO,INFINITO,INFINITO,INFINITO,INFINITO,INFINITO,0,2},
+  {INFINITO,INFINITO,INFINITO,INFINITO,INFINITO,INFINITO,1,INFINITO,INFINITO,0}
+};
+	
+	for(int i = 0 ; i < 9 ; i++){
+		for(int j = 0; j < 9 ; j++){
+			for(int k = 0 ; k < 9 ; k++){
+				if (matriz[j][k] > (matriz[j][i] + matriz[i][k])){
+					matriz[j][k] = matriz[j][i] + matriz[i][k];
+				}
+			}
+		}
+	}	
+
+
+	for(int i = 0 ; i < 10 ; i++) {
+    	for(int j = 0 ; j < 10 ; j++) {
+    		if(matriz[i][j] >= INFINITO){
+    			printf("INF \t");
+    		}else{
+    			printf("%d \t", matriz[i][j]);
+    		}
+    	}
+    	printf("\n");
+	}
+
+	return 0;
+}
